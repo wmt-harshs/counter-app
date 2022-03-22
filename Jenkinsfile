@@ -25,8 +25,8 @@ pipeline{
         
         stage('deliver'){
             steps{
-                sh 'npm start'
                 sh 'npm run build'
+                sh 'npm start'
             }
         }
     }
