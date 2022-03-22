@@ -13,19 +13,20 @@ pipeline{
         stage('build') {
             steps {
                 sh 'npm install'
-                // sh 'npm run build'
+                //sh 'npm run build'
             }
         }
 
-        stage('test') {
-            steps {
-                sh 'npm run test'
-            }
-        }
+        // stage('test') {
+        //     steps {
+        //         sh 'npm run test'
+        //     }
+        // }
         
         stage('deliver'){
             steps{
                 sh 'npm start'
+                sh 'npm run build'
             }
         }
     }
