@@ -23,10 +23,10 @@ pipeline{
             }
         }
         
-        // stage('deliver'){
-        //     steps{
-        //         sh 'npm start'
-        //     }
-        // }
+        stage('deliver'){
+            steps{
+                sh 'npm start'
+            }
+        }
     }
 }
