@@ -10,14 +10,14 @@ pipeline{
     }
     
     stages {
-        stage('build'){
-            steps{
+        stage('build') {
+            steps {
                 sh 'npm install'
                 sh 'npm run build'
             }
         }
-        stage('test'){
-            steps{
+        stage('test') {
+            steps {
                 sh 'npm run test'
             }
         }
