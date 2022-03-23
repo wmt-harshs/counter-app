@@ -17,11 +17,11 @@ pipeline{
             }
         }
 
-        // stage('test') {
-        //     steps {
-        //         sh 'npm run test'
-        //     }
-        // }
+        stage('test') {
+            steps {
+                sh 'node test'
+            }
+        }
         
         stage('deliver'){
             steps{
