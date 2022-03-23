@@ -25,7 +25,7 @@ pipeline{
         
         stage('deliver'){
             steps{
-                sh 'npm install -g netlify-cli'
+                sh 'sudo npm install -g netlify-cli'
                 sh 'netlify deploy --dir=build --prod'
             }
         }
