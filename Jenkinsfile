@@ -1,17 +1,18 @@
 pipeline{
-    agent {
-        docker {
-            image 'node:16.14.2'
-        }
-    }
+    agent any
     environment {
         CI = 'true'
     }
-    
+    // tools {nodejs "node"}
     stages {
+        stage('check') {
+            steps {
+                sh 'npm config ls'
+            }
+        }
         stage('build') {
             steps {
-                sh 'npm ci'
+                sh 'npm install'
                 sh 'npm run build'
                 archiveArtifacts artifacts: 'build/'
             }
@@ -20,7 +21,7 @@ pipeline{
         stage('deliver'){
             steps{
                 sh 'npm install netlify-cli'
-                sh 'npx netlify deploy --site $NETLIFY_SITE_ID_H --$NETLIFY_AUTH_TOKEN_H --dir build/ --prod'
+                sh 'npx netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir build/ --prod'
             }
         }
     }
